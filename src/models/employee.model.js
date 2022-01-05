@@ -15,6 +15,8 @@ var Employee = function(employee){
     this.status         = employee.status ? employee.status : 1;
     this.created_at     = new Date();
     this.updated_at     = new Date();
+
+    
 };
 
 Employee.create = function(newEmp, result){
