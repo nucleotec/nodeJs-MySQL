@@ -1,11 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+var cors = require('cors')
 
 //criar o express app
 const app = express();
 
+/* Configure cors */
+app.set('secret', 'aplication');
 
+const corsOptions = {
+    exposedHeaders: ['x-access-token']
+};
+app.use(cors(corsOptions));
 //Porta do serviço
 const port = process.env.PORT || 5000;
 
@@ -16,7 +22,7 @@ app.use(bodyParser.json())
 // define um rota padrao
 
 app.get('/',(req, res) => {
-    res.send("Hello!!!")
+    res.send("API OK!!!")
 });
 
 //Require employee routes
